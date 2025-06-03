@@ -6,6 +6,7 @@ import 'package:visalert/pages/notification_page.dart';
 import 'package:visalert/pages/profile_page.dart';
 import 'package:visalert/pages/settings_page.dart';
 import 'package:visalert/pages/alert_page.dart';
+import 'package:visalert/pages/report_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'pages/intro_page.dart';
 
@@ -70,8 +71,8 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           BottomNavigationBarItem(icon: Icon(CupertinoIcons.bell), label: '通知'),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.person),
-            label: '我的',
+            icon: Icon(CupertinoIcons.chart_bar),
+            label: '报表',
           ),
           BottomNavigationBarItem(
             icon: Icon(CupertinoIcons.settings),
@@ -96,7 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
             content = const NotificationTabPage();
             break;
           case 3:
-            content = const ProfileTabPage();
+            content = const ReportTabPage();
             break;
           case 4:
             content = const SettingsTabPage();

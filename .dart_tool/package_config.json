@@ -404,6 +404,12 @@
       "languageVersion": "3.3"
     },
     {
+      "name": "simple_gesture_detector",
+      "rootUri": "file:///Users/huihongchen/.pub-cache/hosted/pub.dev/simple_gesture_detector-0.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "sky_engine",
       "rootUri": "file:///Users/huihongchen/development/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
@@ -432,6 +438,12 @@
       "rootUri": "file:///Users/huihongchen/.pub-cache/hosted/pub.dev/string_scanner-1.4.1",
       "packageUri": "lib/",
       "languageVersion": "3.1"
+    },
+    {
+      "name": "table_calendar",
+      "rootUri": "file:///Users/huihongchen/.pub-cache/hosted/pub.dev/table_calendar-3.1.3",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
     },
     {
       "name": "term_glyph",
@@ -500,7 +512,7 @@
       "languageVersion": "3.7"
     }
   ],
-  "generated": "2025-06-03T17:26:30.860157Z",
+  "generated": "2025-06-03T18:53:23.799404Z",
   "generator": "pub",
   "generatorVersion": "3.7.2",
   "flutterRoot": "file:///Users/huihongchen/development/flutter",
