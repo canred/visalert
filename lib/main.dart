@@ -63,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return CupertinoTabScaffold(
       tabBar: CupertinoTabBar(
         items: const [
-          BottomNavigationBarItem(icon: Icon(CupertinoIcons.home), label: '首页'),
+          BottomNavigationBarItem(icon: Icon(CupertinoIcons.bell), label: '消息'),
           BottomNavigationBarItem(
             icon: Icon(CupertinoIcons.search),
             label: '搜索',
