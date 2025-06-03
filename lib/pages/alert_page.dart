@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'alert_data.dart';
+import 'alert_detail_page.dart';
 
 class AlertTabPage extends StatelessWidget {
   const AlertTabPage({super.key});
@@ -162,7 +163,11 @@ class AlertTabPage extends StatelessWidget {
                 ),
               ),
               onTap: () {
-                // 可在此处理点击事件
+                Navigator.of(context).push(
+                  CupertinoPageRoute(
+                    builder: (context) => AlertDetailPage(alert: alert),
+                  ),
+                );
               },
             );
           },
