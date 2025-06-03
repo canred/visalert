@@ -5,13 +5,6 @@ class HomeTabPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
-        Icon(CupertinoIcons.home, size: 60, color: CupertinoColors.activeBlue),
-        SizedBox(height: 12),
-        Text('首页内容', style: TextStyle(fontSize: 20)),
-      ],
-    );
+    return const Center(child: Text('请使用 AlertTabPage'));
   }
 }

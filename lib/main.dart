@@ -1,12 +1,13 @@
-import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart'; // 引入 services 套件以設定系統UI樣式
 import 'package:visalert/services/config_service.dart';
-import 'package:visalert/pages/home_page.dart';
 import 'package:visalert/pages/search_page.dart';
 import 'package:visalert/pages/notification_page.dart';
 import 'package:visalert/pages/profile_page.dart';
 import 'package:visalert/pages/settings_page.dart';
+import 'package:visalert/pages/alert_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'pages/intro_page.dart';
 
 // import 'package:prmsapp/services/messaging_service.dart'; // 如有推播服務可解開
 // import 'package:prmsapp/pages/main_page.dart'; // 如有主頁可解開
@@ -23,39 +24,26 @@ void main() async {
     defaultValue: 'App',
   );
 
-  // // 初始化Firebase
-  // try {
-  //   await Firebase.initializeApp();
-  // } catch (e) {
-  //   print("Firebase initialization failed: $e");
-  //   return;
-  // }
-  // 設定狀態列樣式，使其背景色跟隨APP主題
-  SystemChrome.setSystemUIOverlayStyle(
-    const SystemUiOverlayStyle(
-      statusBarColor: Color.fromRGBO(0, 0, 0, 0), // 透明色，讓背景色可以顯示
-      statusBarBrightness: Brightness.light, // iOS狀態列亮度，淺色背景用深色文字
-      statusBarIconBrightness: Brightness.dark, // Android狀態列圖標亮度
-    ),
-  );
+  final prefs = await SharedPreferences.getInstance();
+  final bool seenIntro = prefs.getBool('seen_intro') ?? false;
 
-  // 初始化推播通知服務（如有）
-  // await PushNotificationService().init();
-
-  runApp(PrmsApp(appTitle: appTitle));
+  runApp(PrmsApp(appTitle: appTitle, showIntro: !seenIntro));
 }
 
 class PrmsApp extends StatelessWidget {
   final String appTitle;
-  const PrmsApp({super.key, required this.appTitle});
+  final bool showIntro;
+  const PrmsApp({super.key, required this.appTitle, this.showIntro = false});
 
   @override
   Widget build(BuildContext context) {
     return CupertinoApp(
       debugShowCheckedModeBanner: false,
       theme: const CupertinoThemeData(brightness: Brightness.light),
-      // home: MainPage(title: 'PRMS APP main'), // 如有主頁可解開
-      home: MyHomePage(title: appTitle),
+      home:
+          showIntro
+              ? IntroPage(appTitle: appTitle)
+              : MyHomePage(title: appTitle),
     );
   }
 }
@@ -70,14 +58,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return CupertinoTabScaffold(
@@ -107,7 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
         Widget content;
         switch (index) {
           case 0:
-            content = const HomeTabPage();
+            content = const AlertTabPage();
             break;
           case 1:
             content = const SearchTabPage();
