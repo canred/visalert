@@ -1,4 +1,4 @@
-package com.example.visalert
+package vis.com.tw.visalert
 
 import io.flutter.embedding.android.FlutterActivity
 

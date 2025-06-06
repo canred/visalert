@@ -9,6 +9,7 @@ import 'package:visalert/pages/alert_page.dart';
 import 'package:visalert/pages/report_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'pages/intro_page.dart';
+import 'services/google_sign_in_service.dart';
 
 // import 'package:prmsapp/services/messaging_service.dart'; // 如有推播服務可解開
 // import 'package:prmsapp/pages/main_page.dart'; // 如有主頁可解開
@@ -16,6 +17,9 @@ import 'pages/intro_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized(); // 確保Flutter綁定已初始化
+
+  // 初始化 GoogleSignInService
+  await GoogleSignInService.instance.init();
 
   // 架构化加载配置
   final configService = ConfigService();

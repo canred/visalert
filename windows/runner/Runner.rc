@@ -89,11 +89,11 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "com.example" "\0"
+            VALUE "CompanyName", "vis.com.tw" "\0"
             VALUE "FileDescription", "visalert" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "visalert" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2025 com.example. All rights reserved." "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2025 vis.com.tw. All rights reserved." "\0"
             VALUE "OriginalFilename", "visalert.exe" "\0"
             VALUE "ProductName", "visalert" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
