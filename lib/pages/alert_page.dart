@@ -41,12 +41,12 @@ class _AlertTabPageState extends State<AlertTabPage> {
       children: [
         CupertinoScrollbar(
           child: Padding(
-            padding: const EdgeInsets.only(top: 8), // 给Scrollbar和内容顶部加间距，避免被遮挡
+            padding: const EdgeInsets.only(top: 66), // 给Scrollbar和内容顶部加间距，避免被遮挡
             child: ListView.separated(
               padding: const EdgeInsets.only(
-                top: 32,
-                left: 16,
-                right: 16,
+                top: 0,
+                left: 0,
+                right: 0,
                 bottom: 0,
               ),
               itemCount: alerts.length,
@@ -54,17 +54,20 @@ class _AlertTabPageState extends State<AlertTabPage> {
                   (context, index) => Container(
                     height: 1,
                     color: CupertinoColors.systemGrey5,
-                    margin: const EdgeInsets.only(top: 12), // 增加与上一笔资料的间距
+                    margin: const EdgeInsets.only(top: 6), // 增加与上一笔资料的间距
                   ),
               itemBuilder: (context, index) {
                 final alert = alerts[index];
                 final icon =
                     alertIcons[alert['title']] ?? CupertinoIcons.bell_solid;
                 return CupertinoListTile(
-                  leading: Icon(
-                    icon,
-                    color: CupertinoColors.systemRed,
-                    size: 32,
+                  leading: SizedBox(
+                    width: 32, // 控制左侧区域宽度，防止过宽
+                    child: Icon(
+                      icon,
+                      color: CupertinoColors.systemRed,
+                      size: 24,
+                    ),
                   ),
                   title: Row(
                     children: [
@@ -72,76 +75,95 @@ class _AlertTabPageState extends State<AlertTabPage> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              alert['title'] ?? '',
-                              style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            if ((alert['time'] ?? '').isNotEmpty)
-                              Padding(
-                                padding: const EdgeInsets.only(top: 2),
-                                child: Text(
-                                  alert['time'] ?? '',
-                                  style: const TextStyle(
-                                    fontSize: 13,
-                                    color: CupertinoColors.systemGrey,
+                            Row(
+                              children: [
+                                Flexible(
+                                  child: Text(
+                                    alert['title'] ?? '',
+                                    style: const TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                    overflow: TextOverflow.ellipsis,
                                   ),
                                 ),
-                              ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        constraints: const BoxConstraints(
-                          minWidth: 80,
-                          maxWidth: 120,
-                        ),
-                        margin: const EdgeInsets.only(left: 8),
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 0,
-                          vertical: 0,
-                        ),
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors:
-                                alert['priority'] == '高'
-                                    ? [Color(0xFFFF5E62), Color(0xFFFF9966)]
-                                    : alert['priority'] == '中'
-                                    ? [Color(0xFFFFF200), Color(0xFFFFC371)]
-                                    : [Color(0xFF43E97B), Color(0xFF38F9D7)],
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                          ),
-                          borderRadius: BorderRadius.circular(16),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withOpacity(0.06),
-                              blurRadius: 8,
-                              offset: Offset(0, 2),
-                            ),
-                          ],
-                        ),
-                        child: Center(
-                          child: Text(
-                            '紧急: ${alert['priority'] ?? ''}',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 15,
-                              fontWeight: FontWeight.w900,
-                              letterSpacing: 1.2,
-                              shadows: [
-                                Shadow(
-                                  color: Colors.black.withOpacity(0.08),
-                                  blurRadius: 2,
-                                  offset: Offset(1, 1),
+                                if ((alert['time'] ?? '').isNotEmpty)
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 8),
+                                    child: Text(
+                                      _extractTime(alert['time'] ?? ''),
+                                      style: const TextStyle(
+                                        fontSize: 13,
+                                        color: CupertinoColors.systemGrey,
+                                      ),
+                                    ),
+                                  ),
+                                if ((alert['priority'] ?? '').isNotEmpty)
+                                  Container(
+                                    constraints: const BoxConstraints(
+                                      minWidth: 32,
+                                      maxWidth: 48,
+                                    ),
+                                    margin: const EdgeInsets.only(left: 4),
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 8,
+                                      vertical: 2,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                        colors:
+                                            alert['priority'] == '高'
+                                                ? [
+                                                  Color(0xFFFF5E62),
+                                                  Color(0xFFFF9966),
+                                                ]
+                                                : alert['priority'] == '中'
+                                                ? [
+                                                  Color(0xFFFFF200),
+                                                  Color(0xFFFFC371),
+                                                ]
+                                                : [
+                                                  Color(0xFF43E97B),
+                                                  Color(0xFF38F9D7),
+                                                ],
+                                        begin: Alignment.topLeft,
+                                        end: Alignment.bottomRight,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.black.withOpacity(0.06),
+                                          blurRadius: 8,
+                                          offset: Offset(0, 2),
+                                        ),
+                                      ],
+                                    ),
+                                    child: Text(
+                                      '${alert['priority'] ?? ''}',
+                                      style: const TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.w900,
+                                        letterSpacing: 1.2,
+                                        shadows: [
+                                          Shadow(
+                                            color: Colors.black12,
+                                            blurRadius: 2,
+                                            offset: Offset(1, 1),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+
+                                const SizedBox(width: 12),
+                                Text(
+                                  '${alert['status'] ?? ''}',
+                                  style: const TextStyle(fontSize: 13),
                                 ),
                               ],
                             ),
-                          ),
+                          ],
                         ),
-                        height: 32,
-                        width: double.infinity,
                       ),
                     ],
                   ),
@@ -156,23 +178,19 @@ class _AlertTabPageState extends State<AlertTabPage> {
                       Row(
                         children: [
                           Text(
-                            '处理人: ${alert['handler']}',
+                            '${alert['handler']}',
                             style: const TextStyle(fontSize: 13),
                           ),
 
-                          const SizedBox(width: 12),
+                          const SizedBox(width: 6),
                           Text(
-                            '处理时间: ${alert['handlerTime'] ?? ''}',
+                            '${_extractTime(alert['handlerTime'] ?? '')}',
                             style: const TextStyle(
                               fontSize: 13,
                               color: CupertinoColors.systemGrey2,
                             ),
                           ),
-                          const SizedBox(width: 12),
-                          Text(
-                            '状态: ${alert['status'] ?? ''}',
-                            style: const TextStyle(fontSize: 13),
-                          ),
+
                           const SizedBox(width: 12),
                           Text(
                             '回复: ${alert['reply'] ?? ''}',
@@ -247,5 +265,17 @@ class _AlertTabPageState extends State<AlertTabPage> {
         ),
       ],
     );
+  }
+
+  String _extractTime(String dateTimeStr) {
+    try {
+      // 尝试解析日期时间字符串
+      final dateTime = DateTime.parse(dateTimeStr);
+      // 格式化为 HH:mm
+      return '${dateTime.hour.toString().padLeft(2, '0')}:${dateTime.minute.toString().padLeft(2, '0')}';
+    } catch (e) {
+      // 如果解析失败，返回原始字符串
+      return dateTimeStr;
+    }
   }
 }
