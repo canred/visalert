@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
 class AlertData {
-  static const List<Map<String, String>> alerts = [
+  static const List<Map<String, dynamic>> alerts = [
     // 1
     {
       'title': '高温告警',
@@ -12,6 +12,14 @@ class AlertData {
       'status': '处理中',
       'priority': '高',
       'reply': '已派人检查',
+      'history': [
+        {'handler': '张三', 'reply': '已派人检查', 'handlerTime': '2025-06-01 10:25'},
+        {
+          'handler': '李四',
+          'reply': '温度已恢复正常',
+          'handlerTime': '2025-06-01 11:00',
+        },
+      ],
     },
     // 2
     {
@@ -23,6 +31,9 @@ class AlertData {
       'status': '已处理',
       'priority': '中',
       'reply': '电源已恢复',
+      'history': [
+        {'handler': '李四', 'reply': '电源已恢复', 'handlerTime': '2025-06-02 10:00'},
+      ],
     },
     // 3
     {
@@ -34,6 +45,7 @@ class AlertData {
       'status': '待处理',
       'priority': '高',
       'reply': '',
+      'history': [],
     },
     // 4
     {
@@ -45,6 +57,9 @@ class AlertData {
       'status': '处理中',
       'priority': '高',
       'reply': '已通知安保',
+      'history': [
+        {'handler': '赵六', 'reply': '已通知安保', 'handlerTime': '2025-06-04 21:12'},
+      ],
     },
     // 5
     {
@@ -56,6 +71,9 @@ class AlertData {
       'status': '已处理',
       'priority': '低',
       'reply': '门禁已关闭',
+      'history': [
+        {'handler': '钱七', 'reply': '门禁已关闭', 'handlerTime': '2025-06-05 20:50'},
+      ],
     },
     // 6
     {
@@ -67,6 +85,9 @@ class AlertData {
       'status': '处理中',
       'priority': '中',
       'reply': '已调整湿度',
+      'history': [
+        {'handler': '孙八', 'reply': '已调整湿度', 'handlerTime': '2025-06-06 19:35'},
+      ],
     },
     // 7
     {
@@ -78,6 +99,7 @@ class AlertData {
       'status': '待处理',
       'priority': '高',
       'reply': '',
+      'history': [],
     },
     // 8
     {
@@ -89,6 +111,9 @@ class AlertData {
       'status': '已处理',
       'priority': '中',
       'reply': '设备已上线',
+      'history': [
+        {'handler': '吴十', 'reply': '设备已上线', 'handlerTime': '2025-06-08 17:10'},
+      ],
     },
     // 9
     {
@@ -100,6 +125,9 @@ class AlertData {
       'status': '处理中',
       'priority': '高',
       'reply': '已检查设备',
+      'history': [
+        {'handler': '郑十一', 'reply': '已检查设备', 'handlerTime': '2025-06-09 16:55'},
+      ],
     },
     // 10
     {
@@ -111,6 +139,9 @@ class AlertData {
       'status': '已处理',
       'priority': '低',
       'reply': '温度正常',
+      'history': [
+        {'handler': '张三', 'reply': '温度正常', 'handlerTime': '2025-06-10 16:32'},
+      ],
     },
     // 11
     {
@@ -122,6 +153,9 @@ class AlertData {
       'status': '已处理',
       'priority': '低',
       'reply': '维护完成',
+      'history': [
+        {'handler': '钱十二', 'reply': '维护完成', 'handlerTime': '2025-06-11 16:15'},
+      ],
     },
     // 12
     {
@@ -133,6 +167,9 @@ class AlertData {
       'status': '处理中',
       'priority': '高',
       'reply': '已派人检查',
+      'history': [
+        {'handler': '孙十三', 'reply': '已派人检查', 'handlerTime': '2025-06-12 16:00'},
+      ],
     },
     // 13
     {
@@ -144,6 +181,7 @@ class AlertData {
       'status': '待处理',
       'priority': '中',
       'reply': '',
+      'history': [],
     },
     // 14
     {
@@ -155,6 +193,7 @@ class AlertData {
       'status': '处理中',
       'priority': '高',
       'reply': '已通知网络组',
+      'history': [],
     },
     // 15
     {
@@ -166,6 +205,7 @@ class AlertData {
       'status': '已处理',
       'priority': '高',
       'reply': '已通知安保',
+      'history': [],
     },
     // 16
     {
@@ -177,6 +217,7 @@ class AlertData {
       'status': '处理中',
       'priority': '低',
       'reply': '',
+      'history': [],
     },
     // 17
     {
@@ -188,6 +229,7 @@ class AlertData {
       'status': '待处理',
       'priority': '中',
       'reply': '',
+      'history': [],
     },
     // 18
     {
@@ -199,6 +241,7 @@ class AlertData {
       'status': '处理中',
       'priority': '高',
       'reply': '已更换电池',
+      'history': [],
     },
     // 19
     {
@@ -210,6 +253,7 @@ class AlertData {
       'status': '已处理',
       'priority': '中',
       'reply': '设备已上线',
+      'history': [],
     },
     // 20
     {
@@ -221,6 +265,7 @@ class AlertData {
       'status': '处理中',
       'priority': '高',
       'reply': '已检查设备',
+      'history': [],
     },
     // 21
     {
@@ -232,6 +277,7 @@ class AlertData {
       'status': '已处理',
       'priority': '低',
       'reply': '温度正常',
+      'history': [],
     },
     // 22
     {
@@ -243,6 +289,7 @@ class AlertData {
       'status': '处理中',
       'priority': '高',
       'reply': '已派人检查',
+      'history': [],
     },
     // 23
     {
@@ -254,6 +301,7 @@ class AlertData {
       'status': '待处理',
       'priority': '中',
       'reply': '',
+      'history': [],
     },
     // 24
     {
@@ -265,6 +313,7 @@ class AlertData {
       'status': '处理中',
       'priority': '高',
       'reply': '已通知网络组',
+      'history': [],
     },
     // 25
     {
@@ -276,6 +325,7 @@ class AlertData {
       'status': '已处理',
       'priority': '高',
       'reply': '已通知安保',
+      'history': [],
     },
     // 26
     {
@@ -287,6 +337,7 @@ class AlertData {
       'status': '处理中',
       'priority': '低',
       'reply': '',
+      'history': [],
     },
     // 27
     {
@@ -298,6 +349,7 @@ class AlertData {
       'status': '待处理',
       'priority': '中',
       'reply': '',
+      'history': [],
     },
     // 28
     {
@@ -309,6 +361,7 @@ class AlertData {
       'status': '处理中',
       'priority': '高',
       'reply': '已更换电池',
+      'history': [],
     },
     // 29
     {
@@ -320,6 +373,7 @@ class AlertData {
       'status': '已处理',
       'priority': '中',
       'reply': '设备已上线',
+      'history': [],
     },
     // 30
     {
@@ -331,6 +385,7 @@ class AlertData {
       'status': '处理中',
       'priority': '高',
       'reply': '已检查设备',
+      'history': [],
     },
     // 1
     {
@@ -342,6 +397,14 @@ class AlertData {
       'status': '处理中',
       'priority': '高',
       'reply': '已派人检查',
+      'history': [
+        {'handler': '张三', 'reply': '已派人检查', 'handlerTime': '2025-06-01 10:25'},
+        {
+          'handler': '李四',
+          'reply': '温度已恢复正常',
+          'handlerTime': '2025-06-01 11:00',
+        },
+      ],
     },
     // 2
     {
@@ -353,6 +416,9 @@ class AlertData {
       'status': '已处理',
       'priority': '中',
       'reply': '电源已恢复',
+      'history': [
+        {'handler': '李四', 'reply': '电源已恢复', 'handlerTime': '2025-06-02 10:00'},
+      ],
     },
     // 3
     {
@@ -364,6 +430,7 @@ class AlertData {
       'status': '待处理',
       'priority': '高',
       'reply': '',
+      'history': [],
     },
     // 4
     {
@@ -375,6 +442,9 @@ class AlertData {
       'status': '处理中',
       'priority': '高',
       'reply': '已通知安保',
+      'history': [
+        {'handler': '赵六', 'reply': '已通知安保', 'handlerTime': '2025-06-04 21:12'},
+      ],
     },
     // 5
     {
@@ -386,6 +456,9 @@ class AlertData {
       'status': '已处理',
       'priority': '低',
       'reply': '门禁已关闭',
+      'history': [
+        {'handler': '钱七', 'reply': '门禁已关闭', 'handlerTime': '2025-06-05 20:50'},
+      ],
     },
     // 6
     {
@@ -397,6 +470,9 @@ class AlertData {
       'status': '处理中',
       'priority': '中',
       'reply': '已调整湿度',
+      'history': [
+        {'handler': '孙八', 'reply': '已调整湿度', 'handlerTime': '2025-06-06 19:35'},
+      ],
     },
     // 7
     {
@@ -408,6 +484,7 @@ class AlertData {
       'status': '待处理',
       'priority': '高',
       'reply': '',
+      'history': [],
     },
     // 8
     {
@@ -419,6 +496,9 @@ class AlertData {
       'status': '已处理',
       'priority': '中',
       'reply': '设备已上线',
+      'history': [
+        {'handler': '吴十', 'reply': '设备已上线', 'handlerTime': '2025-06-08 17:10'},
+      ],
     },
     // 9
     {
@@ -430,6 +510,9 @@ class AlertData {
       'status': '处理中',
       'priority': '高',
       'reply': '已检查设备',
+      'history': [
+        {'handler': '郑十一', 'reply': '已检查设备', 'handlerTime': '2025-06-09 16:55'},
+      ],
     },
     // 10
     {
@@ -441,6 +524,253 @@ class AlertData {
       'status': '已处理',
       'priority': '低',
       'reply': '温度正常',
+      'history': [
+        {'handler': '张三', 'reply': '温度正常', 'handlerTime': '2025-06-10 16:32'},
+      ],
+    },
+    // 11
+    {
+      'title': '设备维护',
+      'time': '2025-06-11 16:10',
+      'desc': '设备J例行维护提醒',
+      'handler': '钱十二',
+      'handlerTime': '2025-06-11 16:15',
+      'status': '已处理',
+      'priority': '低',
+      'reply': '维护完成',
+      'history': [
+        {'handler': '钱十二', 'reply': '维护完成', 'handlerTime': '2025-06-11 16:15'},
+      ],
+    },
+    // 12
+    {
+      'title': '高温告警',
+      'time': '2025-06-12 15:55',
+      'desc': '设备K温度超过阈值',
+      'handler': '孙十三',
+      'handlerTime': '2025-06-12 16:00',
+      'status': '处理中',
+      'priority': '高',
+      'reply': '已派人检查',
+      'history': [
+        {'handler': '孙十三', 'reply': '已派人检查', 'handlerTime': '2025-06-12 16:00'},
+      ],
+    },
+    // 13
+    {
+      'title': '断电告警',
+      'time': '2025-06-13 15:40',
+      'desc': '设备L电源中断',
+      'handler': '周十四',
+      'handlerTime': '2025-06-13 15:45',
+      'status': '待处理',
+      'priority': '中',
+      'reply': '',
+      'history': [],
+    },
+    // 14
+    {
+      'title': '网络异常',
+      'time': '2025-06-14 15:25',
+      'desc': '设备M网络连接丢失',
+      'handler': '吴十五',
+      'handlerTime': '2025-06-14 15:30',
+      'status': '处理中',
+      'priority': '高',
+      'reply': '已通知网络组',
+      'history': [],
+    },
+    // 15
+    {
+      'title': '烟雾报警',
+      'time': '2025-06-15 15:10',
+      'desc': '设备N检测到烟雾',
+      'handler': '郑十六',
+      'handlerTime': '2025-06-15 15:12',
+      'status': '已处理',
+      'priority': '高',
+      'reply': '已通知安保',
+      'history': [],
+    },
+    // 16
+    {
+      'title': '门禁异常',
+      'time': '2025-06-16 14:55',
+      'desc': '设备O门禁未关闭',
+      'handler': '王十七',
+      'handlerTime': '2025-06-16 15:00',
+      'status': '处理中',
+      'priority': '低',
+      'reply': '',
+      'history': [],
+    },
+    // 17
+    {
+      'title': '湿度过高',
+      'time': '2025-06-17 14:40',
+      'desc': '设备P湿度超过阈值',
+      'handler': '李十八',
+      'handlerTime': '2025-06-17 14:45',
+      'status': '待处理',
+      'priority': '中',
+      'reply': '',
+      'history': [],
+    },
+    // 18
+    {
+      'title': '电池低电量',
+      'time': '2025-06-18 14:25',
+      'desc': '设备Q电池电量低',
+      'handler': '赵十九',
+      'handlerTime': '2025-06-18 14:30',
+      'status': '处理中',
+      'priority': '高',
+      'reply': '已更换电池',
+      'history': [],
+    },
+    // 19
+    {
+      'title': '设备离线',
+      'time': '2025-06-19 14:10',
+      'desc': '设备R已离线',
+      'handler': '钱二十',
+      'handlerTime': '2025-06-19 14:15',
+      'status': '已处理',
+      'priority': '中',
+      'reply': '设备已上线',
+      'history': [],
+    },
+    // 20
+    {
+      'title': '异常重启',
+      'time': '2025-06-20 13:55',
+      'desc': '设备S发生异常重启',
+      'handler': '孙二一',
+      'handlerTime': '2025-06-20 14:00',
+      'status': '处理中',
+      'priority': '高',
+      'reply': '已检查设备',
+      'history': [],
+    },
+    // 21
+    {
+      'title': '温度恢复',
+      'time': '2025-06-21 13:40',
+      'desc': '设备K温度恢复正常',
+      'handler': '孙十三',
+      'handlerTime': '2025-06-21 13:42',
+      'status': '已处理',
+      'priority': '低',
+      'reply': '温度正常',
+      'history': [],
+    },
+    // 22
+    {
+      'title': '高温告警',
+      'time': '2025-06-22 13:25',
+      'desc': '设备S温度超过阈值',
+      'handler': '郑十六',
+      'handlerTime': '2025-06-22 13:30',
+      'status': '处理中',
+      'priority': '高',
+      'reply': '已派人检查',
+      'history': [],
+    },
+    // 23
+    {
+      'title': '断电告警',
+      'time': '2025-06-23 13:10',
+      'desc': '设备T电源中断',
+      'handler': '王二二',
+      'handlerTime': '2025-06-23 13:15',
+      'status': '待处理',
+      'priority': '中',
+      'reply': '',
+      'history': [],
+    },
+    // 24
+    {
+      'title': '网络异常',
+      'time': '2025-06-24 12:55',
+      'desc': '设备U网络连接丢失',
+      'handler': '李二三',
+      'handlerTime': '2025-06-24 13:00',
+      'status': '处理中',
+      'priority': '高',
+      'reply': '已通知网络组',
+      'history': [],
+    },
+    // 25
+    {
+      'title': '烟雾报警',
+      'time': '2025-06-25 12:40',
+      'desc': '设备V检测到烟雾',
+      'handler': '赵二四',
+      'handlerTime': '2025-06-25 12:42',
+      'status': '已处理',
+      'priority': '高',
+      'reply': '已通知安保',
+      'history': [],
+    },
+    // 26
+    {
+      'title': '门禁异常',
+      'time': '2025-06-26 12:25',
+      'desc': '设备W门禁未关闭',
+      'handler': '钱二五',
+      'handlerTime': '2025-06-26 12:30',
+      'status': '处理中',
+      'priority': '低',
+      'reply': '',
+      'history': [],
+    },
+    // 27
+    {
+      'title': '湿度过高',
+      'time': '2025-06-27 12:10',
+      'desc': '设备X湿度超过阈值',
+      'handler': '孙二六',
+      'handlerTime': '2025-06-27 12:15',
+      'status': '待处理',
+      'priority': '中',
+      'reply': '',
+      'history': [],
+    },
+    // 28
+    {
+      'title': '电池低电量',
+      'time': '2025-06-28 11:55',
+      'desc': '设备Y电池电量低',
+      'handler': '周二七',
+      'handlerTime': '2025-06-28 12:00',
+      'status': '处理中',
+      'priority': '高',
+      'reply': '已更换电池',
+      'history': [],
+    },
+    // 29
+    {
+      'title': '设备离线',
+      'time': '2025-06-29 11:40',
+      'desc': '设备Z已离线',
+      'handler': '吴二八',
+      'handlerTime': '2025-06-29 11:45',
+      'status': '已处理',
+      'priority': '中',
+      'reply': '设备已上线',
+      'history': [],
+    },
+    // 30
+    {
+      'title': '异常重启',
+      'time': '2025-06-30 11:25',
+      'desc': '设备AA发生异常重启',
+      'handler': '郑二九',
+      'handlerTime': '2025-06-30 11:30',
+      'status': '处理中',
+      'priority': '高',
+      'reply': '已检查设备',
+      'history': [],
     },
   ];
 

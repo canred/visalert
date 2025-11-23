@@ -29,7 +29,7 @@ class _AlertTabPageState extends State<AlertTabPage> {
   }
 
   // 示例告警数据（100条样本）
-  final List<Map<String, String>> alerts = AlertData.alerts;
+  final List<Map<String, dynamic>> alerts = AlertData.alerts;
 
   // 告警类型与对应icon
   static final Map<String, IconData> alertIcons = AlertData.alertIcons;
